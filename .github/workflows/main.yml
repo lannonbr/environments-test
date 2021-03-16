@@ -16,11 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: main
-      url: ${{ steps.deploy_url.outputs.url }}
+      url: ${{ steps.deploy.outputs.site_url }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: deploy_url
+      - name: deploy
+        id: deploy
         run: |
-          echo "::set-output name=url::https://github.com/lannonbr"
+          echo "::set-output name=site_url::https://github.com/lannonbr/"
